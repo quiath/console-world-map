@@ -13,7 +13,7 @@ Just copy and paste the contents of `mercator_one_line.sh` into Linux command li
 Alternatively, using the awk script in a file:
 
 ```bash
-awk -vW=`tput cols` -vH=`tput lines` -f mercator_rle2.awk
+awk -v W=`tput cols` -v H=`tput lines` -f mercator_rle2.awk
 ```
 
 ## Data preparation
