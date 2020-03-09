@@ -1,3 +1,6 @@
+
+function gety(py){return int(-sin(py/90*3.1415927/2)*H/2+H/2);}
+function getx(px,py){return int(sin((x+t)/90*3.1415927/2)*W/4*cos(py/90*3.1415927/2)+W/2);}
 function globe(t,w,nw) {
   
   LAT=75;
@@ -32,9 +35,9 @@ function globe(t,w,nw) {
         for(x=px;x<px+len;++x){
           shifted=(x+180+t)%360;
           if (shifted<90||shifted>270)continue;
-          wy=int(-sin(py/90*3.1415927/2)*H/2+H/2)
+          wy=gety(py);#int(-sin(py/90*3.1415927/2)*H/2+H/2);
           #wy=int(H-(py+LAT)/LAT2*H);
-          wx=int(sin((x+t)/90*3.1415927/2)*W/4*cos(py/90*3.1415927/2)+W/2)
+          wx=getx(px,py);#int(sin((x+t)/90*3.1415927/2)*W/4*cos(py/90*3.1415927/2)+W/2);
           #wx=int(((x+180+t)%360)/360*W);
           wm[wy " " wx] = ":";
           #print py, px, wy, wx;
@@ -56,11 +59,17 @@ function globe(t,w,nw) {
   #printf("%dx%d", W, H);
   
   split("", m);
-  n=0;
    
   for (i=1;i<=n;i += 3) {
-    py=int(H-(a[i+1]+LAT)/LAT2*H);
-    px=int(((a[i+2]+180+t)%360)/360*W);
+    x=a[i+2];
+    y=a[i+1];
+    shifted=(x+180+t)%360;
+    if (shifted<90||shifted>270)continue;
+    py=gety(y);
+    px=getx(x,y);
+
+    #py=int(H-(a[i+1]+LAT)/LAT2*H);
+    #px=int(((a[i+2]+180+t)%360)/360*W);
     m[py " " px] = a[i];
     #printf(" %s %d %d",a[i], py, px);
   }
