@@ -50,7 +50,11 @@ First, I'm extracting the vertices, sort them by their numerical value and remov
 
 In case of problems remove the escape strings used for color. 
 
-### Example
+### Example (spinning globe)
+
+![Spinning globe](globe.gif)
+
+### Example (mercator projection)
 
 ```
 ::      :         :::::::::::::::::::   :::        :::              ::       :::::::::::::: :   :::: :::::::::: :
@@ -87,7 +91,7 @@ In case of problems remove the escape strings used for color.
 
 ## TODO
 
-Spinning globe.
+Description of the spinning globe.
 
 
 Copyright 2020 Tomasz Kwiatkowski
