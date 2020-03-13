@@ -36,7 +36,7 @@ function globe(t,w,nw) {
           #wy=int(H-(py+LAT)/LAT2*H);
           wx=getx(px,py);#int(sin((x+t)/90*3.1415927/2)*W/4*cos(py/90*3.1415927/2)+W/2);
           #wx=int(((x+180+t)%360)/360*W);
-          wm[wy " " wx] = ":";
+          wm[wy" "wx]=":";
           #print py, px, wy, wx;
         }
       }
@@ -64,14 +64,14 @@ function globe(t,w,nw) {
 
     #py=int(H-(a[i+1]+LAT)/LAT2*H);
     #px=int(((a[i+2]+180+t)%360)/360*W);
-    m[py " " px] = a[i];
+    m[py" "px]=a[i];
     #printf(" %s %d %d",a[i], py, px);
   }
   i=0;
 
 #  while (i<W*H-1) {
 #    x=i%W; y=int(i/W);
-#    k=y " " x;
+#    k=y" "x;
 #    if(k in m) {
 #      printf("%s", m[k]);
 #      i+=3;
@@ -84,12 +84,12 @@ function globe(t,w,nw) {
   e="";
   while (i<W*H-1) {
     x=i%W; y=int(i/W);
-    k=y " " x;
+    k=y" "x;
     if(k in m) {
-      e = e "\033[37m" m[k] "\033[32m";
+      e=e "\033[37m" m[k] "\033[32m";
       i+=3;
     } else {
-      if (k in wm) { e = e ":" ;} else { e = e " ";}
+      if (k in wm) { e=e":";} else { e=e" ";}
       i+=1;
     }
   }
