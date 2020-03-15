@@ -1,10 +1,10 @@
 # console-world-map
 
-World map of airports in your console with no dependencies!
+World map of country boundaries or airports in your console with no dependencies!
 
 ## Purpose
 
-Imagine you have only limited access to a Unix (Linux, MacOS, Git Bash) text console where you cannot easily transfer files and you have no personal directory for storage anyway. And you want to see the animated world map of the significant airports using just the command line `bash` and `awk`, without dependency on python etc. Now you can!
+Imagine you have only limited access to a Unix (Linux, MacOS, Git Bash) text console where you cannot easily transfer files and you have no personal directory for storage anyway. And you want to see the animated world map of the significant airports, or countries, using just the command line `bash` and `awk`, without dependency on python etc. Now you can!
 
 ## Usage
 
@@ -29,6 +29,21 @@ awk -v W=`tput cols` -v H=`tput lines` -f globe_filled.awk
 ```bash
 awk -v W=`tput cols` -v H=`tput lines` -f mercator_rle2.awk
 ```
+If you have a table with country codes or (merged) country names you can also highlight these countries on the globe.
+
+Assuming the contents of the data file `data.txt` are:
+```
+China 100
+RUS 50
+USA 10
+```
+you can display it as follows:
+
+```bash
+awk -v W=`tput cols` -v H=`tput lines` -f globe_nations.awk data.txt
+```
+
+This awk script also has a [single line version](globe_nations_one_line.sh), this differs from the other one liners as it expects input. 
 
 ### Example (spinning globe with country contours)
 
@@ -37,6 +52,10 @@ awk -v W=`tput cols` -v H=`tput lines` -f mercator_rle2.awk
 ### Example (spinning globe with filled continents)
 
 ![Spinning globe filled](globe_filled.gif)
+
+### Example (spinning globe with countries largest by area distinguished by color)
+
+![Spinning globe nations](globe_nations.gif)
 
 ### Example (mercator projection)
 
